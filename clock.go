@@ -13,7 +13,7 @@ func main() {
 		highlight_end   = "\x1b[0m"
 	)
 	fmt.Print(indent, highlight_start, "Just Go", highlight_end, "\n")
-	target := time.Date(2015, 12, 22, 4, 47, 55, 0, time.UTC)
+	target := time.Date(2015, 12, 21, 23, 47, 55, 0, time.Local)
 	fmt.Print(indent, target.Format(time.UnixDate), "\n")
 
 	var (
@@ -27,7 +27,7 @@ func main() {
 		if now != previous {
 			previous = now
 			remaining := target.Sub(now)
-			if remaining >= 0 {
+			if remaining > 0 {
 				sign = "-" // countdown is "T minus..."
 			} else {
 				sign = "+" // count up is "T plus..."
