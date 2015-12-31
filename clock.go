@@ -8,15 +8,7 @@ import (
 )
 
 func main() {
-	const (
-		indent          = "\t"
-		highlight_start = "\x1b[1;36m"
-		highlight_end   = "\x1b[0m"
-	)
-
-	fmt.Print(indent, highlight_start, "Just Go", highlight_end, "\n")
 	target := time.Date(2016, 1, 1, 0, 0, 0, 0, time.UTC)
-	fmt.Print(indent, target.Format(time.UnixDate), "\n")
 
 	// Exit on Enter key
 	go func() {
@@ -24,6 +16,13 @@ func main() {
 		_, _ = os.Stdin.Read(buf)
 		os.Exit(0)
 	}()
+
+	const (
+		indent          = "\t"
+		highlight_start = "\x1b[1;36m"
+		highlight_end   = "\x1b[0m"
+	)
+	fmt.Print(indent, highlight_start, "Just Go", highlight_end, "\n")
 
 	var previous time.Time
 
