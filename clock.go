@@ -12,8 +12,9 @@ func main() {
 		highlight_start = "\x1b[1;36m"
 		highlight_end   = "\x1b[0m"
 	)
-	fmt.Print(indent, highlight_start, "Sufficient to Go", highlight_end, "\n")
-	target := time.Date(2015, 12, 21, 23, 47, 55, 0, time.Local)
+
+	fmt.Print(indent, highlight_start, "Just Go", highlight_end, "\n")
+	target := time.Date(2016, 1, 1, 0, 0, 0, 0, time.UTC)
 	fmt.Print(indent, target.Format(time.UnixDate), "\n")
 
 	var (
@@ -21,6 +22,7 @@ func main() {
 		days     int
 		sign     string
 	)
+
 	for {
 		now := time.Now()
 		now = now.Add(time.Duration(-now.Nanosecond())) // truncate to second
