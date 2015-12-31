@@ -18,12 +18,6 @@ func main() {
 	target := time.Date(2016, 1, 1, 0, 0, 0, 0, time.UTC)
 	fmt.Print(indent, target.Format(time.UnixDate), "\n")
 
-	var (
-		previous time.Time
-		days     int
-		sign     string
-	)
-
 	// Exit on Enter key
 	go func() {
 		buf := make([]byte, 1)
@@ -31,22 +25,30 @@ func main() {
 		os.Exit(0)
 	}()
 
+	var previous time.Time
+
 	for {
 		now := time.Now()
 		now = now.Add(time.Duration(-now.Nanosecond())) // truncate to second
+
 		if now != previous {
 			previous = now
 			remaining := target.Sub(now)
+
+			var sign string
 			if remaining > 0 {
 				sign = "-" // countdown is "T minus..."
 			} else {
 				sign = "+" // count up is "T plus..."
 				remaining = -remaining
 			}
+
+			var days int
 			if remaining >= 24*time.Hour {
 				days = int(remaining / (24 * time.Hour))
 				remaining = remaining % (24 * time.Hour)
 			}
+
 			fmt.Print(indent, now.Format(time.UnixDate), "  ", sign)
 			if days > 0 {
 				fmt.Print(days, "d")
