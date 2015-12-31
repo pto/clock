@@ -3,6 +3,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"time"
 )
 
@@ -22,6 +23,13 @@ func main() {
 		days     int
 		sign     string
 	)
+
+	// Exit on Enter key
+	go func() {
+		buf := make([]byte, 1)
+		_, _ = os.Stdin.Read(buf)
+		os.Exit(0)
+	}()
 
 	for {
 		now := time.Now()
