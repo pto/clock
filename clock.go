@@ -21,7 +21,7 @@ func main() {
 		highlight_end   = "\x1b[0m"
 	)
 	fmt.Print(indent, highlight_start, "Go 1.6", highlight_end, "\n")
-	target := time.Date(2016, 2, 17, 0, 0, 0, 0, time.Local)
+	target := time.Date(2016, 2, 17, 16, 33, 53, 0, time.Local)
 	fmt.Print(indent, target.Format(time.UnixDate), "\n")
 
 	var previous time.Time
