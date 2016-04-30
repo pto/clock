@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	target := time.Date(2016, 5, 1, 0, 0, 0, 0, time.Local)
+	target := time.Date(2016, 5, 1, 0, 0, 0, 0, time.UTC)
 	printTargetTime(target)
 	exitOnEnterKey()
 
@@ -35,7 +35,7 @@ func exitOnEnterKey() {
 
 const (
 	indent          = "\t"
-	highlight_start = "\x1b[1;36m"
+	highlight_start = "\x1b[1;35m"
 	highlight_end   = "\x1b[0m"
 )
 
