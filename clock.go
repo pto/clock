@@ -8,8 +8,8 @@ import (
 )
 
 func main() {
-	target := time.Date(2016, 7, 4, 0, 0, 0, 0, time.Local)
-	motto := "Simply Go"
+	target := time.Date(2016, 7, 10, 0, 0, 0, 0, time.UTC)
+	motto := "Just Go"
 	printTargetTime(target, motto)
 	exitOnEnterKey()
 
@@ -35,13 +35,13 @@ func exitOnEnterKey() {
 }
 
 const (
-	indent          = "\t"
-	highlight_start = "\x1b[1;35m"
-	highlight_end   = "\x1b[0m"
+	indent         = "\t"
+	highlightStart = "\x1b[1;35m"
+	highlightEnd   = "\x1b[0m"
 )
 
 func printTargetTime(target time.Time, motto string) {
-	fmt.Print(indent, highlight_start, motto, highlight_end, "\n")
+	fmt.Print(indent, highlightStart, motto, highlightEnd, "\n")
 	fmt.Print(indent, target.Format(time.UnixDate), "\n")
 }
 
