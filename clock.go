@@ -65,4 +65,5 @@ func printTimeRemaining(now time.Time, remaining time.Duration) {
 		fmt.Print(days, "d")
 	}
 	fmt.Print(remaining, "          \r")
+	os.Stdout.Sync()
 }
