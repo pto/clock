@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	target := time.Date(2016, 8, 29, 20, 0, 0, 0, time.Local)
+	target := time.Date(2016, 8, 29, 0, 0, 0, 0, time.Local)
 	motto := "Simplify"
 	printTargetTime(target, motto)
 	exitOnEnterKey()
