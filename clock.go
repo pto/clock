@@ -54,11 +54,8 @@ func printTimeRemaining(now time.Time, remaining time.Duration) {
 		remaining = -remaining
 	}
 
-	var days int
-	if remaining >= 24*time.Hour {
-		days = int(remaining / (24 * time.Hour))
-		remaining = remaining % (24 * time.Hour)
-	}
+	days := int(remaining / (24 * time.Hour))
+	remaining = remaining % (24 * time.Hour)
 
 	fmt.Print(indent, now.Format(time.UnixDate), "  ", sign)
 	if days > 0 {
