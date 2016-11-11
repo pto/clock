@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	target := time.Date(2016, 11, 10, 0, 0, 0, 0, time.Local)
+	target := time.Date(2016, 11, 14, 0, 0, 0, 0, time.Local)
 	motto := "Just Go"
 	printTargetTime(target, motto)
 	exitOnEnterKey()
@@ -16,7 +16,7 @@ func main() {
 	var previous time.Time
 	for {
 		now := time.Now()
-		now = now.Add(time.Duration(-now.Nanosecond())) // truncate to second
+		now = now.Truncate(time.Second)
 		if now != previous {
 			previous = now
 			remaining := target.Sub(now)
