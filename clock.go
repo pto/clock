@@ -15,8 +15,7 @@ func main() {
 
 	var previous time.Time
 	for {
-		now := time.Now()
-		now = now.Truncate(time.Second)
+		now := time.Now().Truncate(time.Second)
 		if now != previous {
 			previous = now
 			remaining := target.Sub(now)
