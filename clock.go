@@ -21,7 +21,7 @@ func main() {
 			remaining := target.Sub(now)
 			printTimeRemaining(now, remaining)
 		}
-		time.Sleep(50 * time.Millisecond)
+		time.Sleep(100 * time.Millisecond)
 	}
 }
 
