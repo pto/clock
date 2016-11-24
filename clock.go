@@ -8,8 +8,8 @@ import (
 )
 
 func main() {
-	target := time.Date(2016, 11, 21, 0, 0, 0, 0, time.Local)
-	motto := "Just Go"
+	target := time.Date(2016, 11, 24, 0, 0, 0, 0, time.Local)
+	motto := "Simply Go"
 	printTargetTime(target, motto)
 	exitOnEnterKey()
 
@@ -18,8 +18,8 @@ func main() {
 		now := time.Now().Truncate(time.Second)
 		if now != previous {
 			previous = now
-			remaining := target.Sub(now)
-			printTimeRemaining(now, remaining)
+			countdown := now.Sub(target) // Negative times are before the target
+			printCountdown(now, countdown)
 		}
 		time.Sleep(100 * time.Millisecond)
 	}
@@ -44,22 +44,22 @@ func printTargetTime(target time.Time, motto string) {
 	fmt.Print(indent, target.Format(time.UnixDate), "\n")
 }
 
-func printTimeRemaining(now time.Time, remaining time.Duration) {
+func printCountdown(now time.Time, countdown time.Duration) {
 	var sign string
-	if remaining > 0 {
-		sign = "-" // countdown is "T minus..."
+	if countdown >= 0 {
+		sign = "+"
 	} else {
-		sign = "+" // count up is "T plus..."
-		remaining = -remaining
+		sign = "-"
+		countdown = -countdown
 	}
 
-	days := int(remaining / (24 * time.Hour))
-	remaining = remaining % (24 * time.Hour)
+	days := int(countdown / (24 * time.Hour))
+	countdown = countdown % (24 * time.Hour)
 
 	fmt.Print(indent, now.Format(time.UnixDate), "  ", sign)
 	if days > 0 {
 		fmt.Print(days, "d")
 	}
-	fmt.Print(remaining, "          \r")
+	fmt.Print(countdown, "          \r")
 	os.Stdout.Sync()
 }
