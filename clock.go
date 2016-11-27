@@ -8,8 +8,8 @@ import (
 )
 
 func main() {
-	target := time.Date(2016, 11, 24, 0, 0, 0, 0, time.Local)
-	motto := "Simply Go"
+	target := time.Date(2016, 11, 28, 0, 0, 0, 0, time.Local)
+	motto := "Just Go"
 	printTargetTime(target, motto)
 	exitOnEnterKey()
 
