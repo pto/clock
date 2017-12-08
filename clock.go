@@ -1,4 +1,4 @@
-// clock counts down to or up from a target time.
+// Clock counts down to or up from a target time.
 package main
 
 import (
@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	target := time.Date(2017, 11, 20, 0, 0, 0, 0, time.Local)
+	target := time.Date(2017, 12, 8, 0, 0, 0, 0, time.Local)
 	motto := "Just Go"
 	printTargetTime(target, motto)
 	exitOnEnterKey()
