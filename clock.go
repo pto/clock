@@ -9,7 +9,7 @@ import (
 
 func main() {
 	target := time.Date(2018, 7, 1, 0, 0, 0, 0, time.UTC)
-	motto := "Simply Go"
+	motto := "Just Go"
 	printTargetTime(target, motto)
 	exitOnEnterKey()
 
