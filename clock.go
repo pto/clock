@@ -7,18 +7,9 @@ import (
 	"time"
 )
 
-const (
-	cursorHide     = "\x1b[?25l"
-	cursorShow     = "\x1b[?25h"
-	highlightStart = "\x1b[1;35m"
-	highlightEnd   = "\x1b[0m"
-	indent         = "\t"
-)
-
 func main() {
 	target := time.Date(2018, 9, 4, 0, 0, 0, 0, time.Local)
 	motto := "Just Go"
-	fmt.Print(cursorHide)
 	printTargetTime(target, motto)
 	exitOnEnterKey()
 
@@ -38,10 +29,15 @@ func exitOnEnterKey() {
 	go func() {
 		buf := make([]byte, 1)
 		_, _ = os.Stdin.Read(buf)
-		fmt.Println(cursorShow)
 		os.Exit(0)
 	}()
 }
+
+const (
+	highlightStart = "\x1b[1;35m"
+	highlightEnd   = "\x1b[0m"
+	indent         = "\t"
+)
 
 func printTargetTime(target time.Time, motto string) {
 	fmt.Print(indent, highlightStart, motto, highlightEnd, "\n")
