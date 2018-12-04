@@ -8,14 +8,14 @@ import (
 )
 
 func main() {
-	target := time.Date(2018, 12, 1, 0, 0, 0, 0, time.Local)
+	target := time.Date(2018, 12, 8, 0, 0, 0, 0, time.UTC)
 	motto := "Just Go"
 	printTargetTime(target, motto)
 	exitOnEnterKey()
 
 	var previous time.Time
 	for {
-		now := time.Now().Truncate(time.Second)
+		now := time.Now().UTC().Truncate(time.Second)
 		if now != previous {
 			previous = now
 			countdown := now.Sub(target) // Negative times are before the target
