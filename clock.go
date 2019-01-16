@@ -56,7 +56,7 @@ func printCountdown(now time.Time, countdown time.Duration) {
 	days := int(countdown / (24 * time.Hour))
 	countdown = countdown % (24 * time.Hour)
 
-	fmt.Print(indent, now.UTC().Format(time.UnixDate), "  ", sign)
+	fmt.Print(indent, now.Format(time.UnixDate), "  ", sign)
 	if days > 0 {
 		fmt.Print(days, "d")
 	}
