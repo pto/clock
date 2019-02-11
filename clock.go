@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	target := time.Date(2019, 2, 1, 0, 0, 0, 0, time.Local)
+	target := time.Date(2019, 2, 12, 0, 0, 0, 0, time.UTC)
 	motto := "Just Go"
 	printTargetTime(target, motto)
 	exitOnEnterKey()
@@ -56,7 +56,7 @@ func printCountdown(now time.Time, countdown time.Duration) {
 	days := int(countdown / (24 * time.Hour))
 	countdown = countdown % (24 * time.Hour)
 
-	fmt.Print(indent, now.Format(time.UnixDate), "  ", sign)
+	fmt.Print(indent, now.UTC().Format(time.UnixDate), "  ", sign)
 	if days > 0 {
 		fmt.Print(days, "d")
 	}
