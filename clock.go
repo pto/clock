@@ -7,9 +7,13 @@ import (
 	"time"
 )
 
+// Update target and motto as desired.
+var (
+	target = time.Date(2019, 3, 1, 0, 0, 0, 0, time.UTC)
+	motto  = "Just Go"
+)
+
 func main() {
-	target := time.Date(2019, 3, 1, 0, 0, 0, 0, time.Local)
-	motto := "Just Go"
 	printTargetTime(target, motto)
 	exitOnEnterKey()
 
@@ -19,7 +23,7 @@ func main() {
 		if now != previous {
 			previous = now
 			countdown := now.Sub(target) // Negative times are before the target
-			printCountdown(now, countdown)
+			printCountdown(now.In(target.Location()), countdown)
 		}
 		time.Sleep(100 * time.Millisecond)
 	}
