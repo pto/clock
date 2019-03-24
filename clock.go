@@ -9,7 +9,7 @@ import (
 
 // Update target and motto as desired.
 var (
-	target = time.Date(2019, 3, 20, 17, 58, 0, 0, time.Local)
+	target = time.Date(2019, 3, 25, 0, 0, 0, 0, time.Local)
 	motto  = "Just Go"
 )
 
