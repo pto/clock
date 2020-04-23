@@ -9,8 +9,8 @@ import (
 
 // Update target and motto as desired.
 var (
-	target = time.Date(2020, 4, 16, 0, 0, 0, 0, time.Local)
-	motto  = "Just Go"
+	target = time.Date(2020, 5, 1, 0, 0, 0, 0, time.Local)
+	motto  = "Simply Go"
 )
 
 func main() {
